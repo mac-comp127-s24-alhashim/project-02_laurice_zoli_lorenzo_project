@@ -5,6 +5,6 @@ public class Board {
     private int boardWidth;
     private int boardHeight;
 
-    private ArrayList<Tile>();
+    // private ArrayList<Tile>();
 
 }
