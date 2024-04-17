@@ -1,3 +1,5 @@
-public class SnakeUnit {
+public class SnakeUnit extends Tile{
+
+    
     
 }
