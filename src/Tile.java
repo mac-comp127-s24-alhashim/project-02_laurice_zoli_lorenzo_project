@@ -5,7 +5,7 @@ public class Tile extends GraphicsGroup{
     private int xPos;
     private int yPos;
     private int size;
-    private boolean hasFood;
+    // private boolean hasFood;
   
     
 
@@ -19,27 +19,17 @@ public class Tile extends GraphicsGroup{
         this.yPos = yPos;
     }
 
-
-    public int getTileSize(){
-        return size;
+    public void setX(int newX){
+        xPos = newX;
     }
 
+    public void setY(int newY){
+        yPos = newY;
+    }
 
-    public void addToCanvas(CanvasWindow canvas) {
+     public void addToCanvas(CanvasWindow canvas) {
         canvas.add(this.tileShape);
     }
 
-    // public void populateCanvas(CanvasWindow canvas) {
-    //     int numPerRow = canvas.getWidth() / size;
-    //     int numRows = canvas.getHeight() / size;
 
-    //     for(int row = 0; row < numRows; row++) {
-    //         for(double b = 0; b < numPerRow; b++) {
-                
-                
-    //             addToCanvas(canvas);
-    //         }
-    //     }
-
-    // }
 }
