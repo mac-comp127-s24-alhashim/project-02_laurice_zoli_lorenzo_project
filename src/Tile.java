@@ -27,6 +27,7 @@ public class Tile extends GraphicsGroup{
         yPos = newY;
     }
 
+
      public void addToCanvas(CanvasWindow canvas) {
         canvas.add(this.tileShape);
     }
