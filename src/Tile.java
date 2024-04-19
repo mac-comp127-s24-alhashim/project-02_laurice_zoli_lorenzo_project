@@ -2,9 +2,9 @@ import edu.macalester.graphics.*;
 import java.awt.Color;
 
 public class Tile extends GraphicsGroup{
-    private int xPos;
-    private int yPos;
-    private int size;
+    private double xPos;
+    private double yPos;
+    public static final int SIZE = 25;
     // private boolean hasFood;
   
     
@@ -12,8 +12,8 @@ public class Tile extends GraphicsGroup{
 
     public Rectangle tileShape;
 
-    public Tile(int xPos, int yPos, int size, Color color) {
-        this.tileShape = new Rectangle(xPos, yPos, size, size);
+    public Tile(double xPos, double yPos, Color color) {
+        this.tileShape = new Rectangle(xPos, yPos, SIZE, SIZE);
         tileShape.setFillColor(color);
         this.xPos = xPos;
         this.yPos = yPos;
@@ -30,6 +30,14 @@ public class Tile extends GraphicsGroup{
 
      public void addToCanvas(CanvasWindow canvas) {
         canvas.add(this.tileShape);
+    }
+
+    public double getXPos() {
+        return tileShape.getX();
+    }
+
+    public double getYPos() {
+        return tileShape.getY();
     }
 
 

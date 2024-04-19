@@ -14,6 +14,7 @@ public class Snake extends GraphicsGroup {
     public String directionString;
 
     public Snake(double xPos, double yPos, String directionString) {
+        
         this.xPos = xPos;
         this.yPos = yPos;
         this.directionString = directionString;
@@ -24,6 +25,7 @@ public class Snake extends GraphicsGroup {
     }
 
     public void updatePosition(String directionString) {
+
         if(directionString.equals("u")) {
             snakeHead.setPosition(snakeHead.getX(), snakeHead.getY() - SIZE);
         }
@@ -37,6 +39,8 @@ public class Snake extends GraphicsGroup {
             snakeHead.setPosition(snakeHead.getX() + SIZE, snakeHead.getY());
         }
     }
+
+
 
     public double getXPos() {
         return this.snakeHead.getX();
@@ -52,6 +56,8 @@ public class Snake extends GraphicsGroup {
     public void addToCanvas(CanvasWindow canvas) {
         canvas.add(this.snakeHead);
     }
+
+    
 
 
 }
