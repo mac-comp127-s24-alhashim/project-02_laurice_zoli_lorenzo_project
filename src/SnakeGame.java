@@ -46,7 +46,6 @@ public class SnakeGame {
             canvas.add(horizontal);
         }
         //creates green tile for snake head and adds to canvas
-        // Tile snakeHead = new Tile(5 * TILE_SIZE, 5 * TILE_SIZE, 25, Color.GREEN);
         snakeHead.addToCanvas(canvas);
 
         // creates red tile for food and adds to canvas in a random location
@@ -77,6 +76,7 @@ public class SnakeGame {
         });
 
         canvas.animate(() -> {
+            if(moving){
             if(eatFood()) {
                 food.tileShape.setPosition(random.nextInt((int)boardWidth / (int)TILE_SIZE) * TILE_SIZE, random.nextInt(((int)boardHeight / (int)TILE_SIZE)) * TILE_SIZE);
                 Snake snakePart = new Snake(snakeList.get(snakeList.size() - 1).getPreviousPoses()[0], snakeList.get(snakeList.size() - 1).getPreviousPoses()[1], snakeList.get(snakeList.size() - 1).getDirection());
@@ -92,23 +92,19 @@ public class SnakeGame {
             
             // TO DO: //
             // MAKE FOOD METHOD ONLY BE ABLE TO SPAWN FOOD WHERE THERE IS NOT A PART OF A SNAKE //
-            // IMPLEMENT DEATH //
+            // IMPLEMENT STARTING / DEATH SCREENS AND BUTTONS //
 
-            // System.out.println(direction);
-            if(snakeList.size() > 1){
-            // System.out.println("Head Position: " + snakeList.get(0).getXPos() + "    " + snakeList.get(0).getYPos());
-            // System.out.println("Body Position: " + snakeList.get(1).getXPos() + "    " + snakeList.get(1).getYPos());
-            // System.out.println("Snake length: " + snakeList.size());
-
-            }
+            
             try {
                 Thread.sleep(100);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
+            moving = isAlive();
 
-        });
-
+        }
+    });
+        
     }
     public static void main(String[] args) {
         SnakeGame game = new SnakeGame();
@@ -116,11 +112,7 @@ public class SnakeGame {
     }
 
 
-    // public void placeFood(CanvasWindow canvas){
-    //     food.setX(random.nextInt(boardWidth / TILE_SIZE));
-    //     food.setY(random.nextInt(boardHeight / TILE_SIZE));
-    //     food.addToCanvas(canvas);
-    // }
+    
 
 
 
@@ -130,6 +122,19 @@ public class SnakeGame {
 
         }
         return false;
+    }
+
+    public boolean isAlive(){
+        // if(snakeHead.getXPos() >= boardWidth || snakeHead.getXPos() <= 0 || snakeHead.getYPos() >= boardHeight || snakeHead.getYPos() <= 0 ){
+        //     return false;
+        // }
+
+        for(int i = 1; i < snakeList.size(); i++){
+            if(snakeHead.getXPos() == snakeList.get(i).getXPos() && (snakeHead.getYPos() == snakeList.get(i).getYPos())){
+                return false;
+            }
+        }
+        return true;
     }
     
 
