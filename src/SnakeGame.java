@@ -4,7 +4,6 @@ import edu.macalester.graphics.events.Key;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Random;
-import java.awt.Canvas;
 import java.awt.Color;
 
 
@@ -14,7 +13,7 @@ public class SnakeGame {
     public ArrayList<Snake> snakeList = new ArrayList<Snake>(Arrays.asList(snakeHead));
     
 
-
+    
     private static int boardWidth = 600;
     private static int boardHeight = 600;
 
@@ -80,13 +79,28 @@ public class SnakeGame {
         canvas.animate(() -> {
             if(eatFood()) {
                 food.tileShape.setPosition(random.nextInt((int)boardWidth / (int)TILE_SIZE) * TILE_SIZE, random.nextInt(((int)boardHeight / (int)TILE_SIZE)) * TILE_SIZE);
+                Snake snakePart = new Snake(snakeList.get(snakeList.size() - 1).getPreviousPoses()[0], snakeList.get(snakeList.size() - 1).getPreviousPoses()[1], snakeList.get(snakeList.size() - 1).getDirection());
+                snakePart.addToCanvas(canvas);
+                snakeList.add(snakePart);
             }
-
-
             snakeHead.updatePosition(direction);
+            if(snakeList.size() > 1){
+                for (int i = 1; i < snakeList.size(); i++){
+                    snakeList.get(i).updatePosition(snakeList.get(i - 1));
+                }
+            }
+            
+            // TO DO: //
+            // MAKE FOOD METHOD ONLY BE ABLE TO SPAWN FOOD WHERE THERE IS NOT A PART OF A SNAKE //
+            // IMPLEMENT DEATH //
 
             // System.out.println(direction);
-            // System.out.println(snakeHead.getXPos() + "   " + snakeHead.getYPos());
+            if(snakeList.size() > 1){
+            // System.out.println("Head Position: " + snakeList.get(0).getXPos() + "    " + snakeList.get(0).getYPos());
+            // System.out.println("Body Position: " + snakeList.get(1).getXPos() + "    " + snakeList.get(1).getYPos());
+            // System.out.println("Snake length: " + snakeList.size());
+
+            }
             try {
                 Thread.sleep(100);
             } catch (InterruptedException e) {

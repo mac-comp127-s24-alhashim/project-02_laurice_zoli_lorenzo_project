@@ -9,7 +9,10 @@ public class Snake extends GraphicsGroup {
     private double xPos;
     private double yPos;
 
-    public Rectangle snakeHead;
+    private double previousXPos;
+    private double previousYPos;
+
+    public Rectangle snakeShape;
 
     public String directionString;
 
@@ -19,34 +22,47 @@ public class Snake extends GraphicsGroup {
         this.yPos = yPos;
         this.directionString = directionString;
 
-        this.snakeHead = new Rectangle(xPos, yPos, SIZE, SIZE);
+        this.snakeShape = new Rectangle(xPos, yPos, SIZE, SIZE);
 
-        snakeHead.setFillColor(Color.GREEN);
+        snakeShape.setFillColor(Color.GREEN);
     }
 
     public void updatePosition(String directionString) {
 
+        this.previousXPos = this.snakeShape.getX();
+        this.previousYPos = this.snakeShape.getY();
+
         if(directionString.equals("u")) {
-            snakeHead.setPosition(snakeHead.getX(), snakeHead.getY() - SIZE);
+            snakeShape.setPosition(snakeShape.getX(), snakeShape.getY() - SIZE);
         }
         if(directionString.equals("d")) {
-            snakeHead.setPosition(snakeHead.getX(), snakeHead.getY() + SIZE);
+            snakeShape.setPosition(snakeShape.getX(), snakeShape.getY() + SIZE);
         }
         if(directionString.equals("l")) {
-            snakeHead.setPosition(snakeHead.getX() - SIZE, snakeHead.getY());
+            snakeShape.setPosition(snakeShape.getX() - SIZE, snakeShape.getY());
         }
         if(directionString.equals("r")) {
-            snakeHead.setPosition(snakeHead.getX() + SIZE, snakeHead.getY());
+            snakeShape.setPosition(snakeShape.getX() + SIZE, snakeShape.getY());
         }
+    }
+
+    public void updatePosition(Snake nextSnake) {
+        this.previousXPos = this.snakeShape.getX();
+        this.previousYPos = this.snakeShape.getY();
+        snakeShape.setPosition(nextSnake.getPreviousPoses()[0],nextSnake.getPreviousPoses()[1]);
     }
 
 
 
     public double getXPos() {
-        return this.snakeHead.getX();
+        return this.snakeShape.getX();
     }
     public double getYPos() {
-        return this.snakeHead.getY();
+        return this.snakeShape.getY();
+    }
+
+    public String getDirection(){
+        return this.directionString;
     }
 
     public void setDirection(String directionString) {
@@ -54,7 +70,11 @@ public class Snake extends GraphicsGroup {
     }
 
     public void addToCanvas(CanvasWindow canvas) {
-        canvas.add(this.snakeHead);
+        canvas.add(this.snakeShape);
+    }
+
+    public double[] getPreviousPoses() {
+        return new double[]{this.previousXPos, this.previousYPos};
     }
 
     
