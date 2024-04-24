@@ -49,12 +49,11 @@ public class SnakeGame {
         snakeHead.addToCanvas(canvas);
 
         // creates red tile for food and adds to canvas in a random location
-        // Tile food = new Tile(random.nextInt(boardWidth / TILE_SIZE) *TILE_SIZE, random.nextInt(boardHeight / TILE_SIZE) * TILE_SIZE, TILE_SIZE, Color.RED);
         food.addToCanvas(canvas);
-        ///
+    
 
         canvas.draw();
-        // placeFood(canvas);
+        
 
         canvas.onKeyDown(event -> {
             if(direction.equals("l") || direction.equals("r")){
@@ -125,9 +124,9 @@ public class SnakeGame {
     }
 
     public boolean isAlive(){
-        // if(snakeHead.getXPos() >= boardWidth || snakeHead.getXPos() <= 0 || snakeHead.getYPos() >= boardHeight || snakeHead.getYPos() <= 0 ){
-        //     return false;
-        // }
+        if(snakeHead.getXPos() >= boardWidth || snakeHead.getXPos() <= 0 || snakeHead.getYPos() >= boardHeight || snakeHead.getYPos() <= 0 ){
+            return false;
+        }
 
         for(int i = 1; i < snakeList.size(); i++){
             if(snakeHead.getXPos() == snakeList.get(i).getXPos() && (snakeHead.getYPos() == snakeList.get(i).getYPos())){
