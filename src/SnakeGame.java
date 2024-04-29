@@ -36,7 +36,7 @@ public class SnakeGame {
         canvas.setBackground(Color.BLACK);
 
         GraphicsText score = new GraphicsText("0");
-        score.setCenter(boardWidth - 20, boardHeight - 20);
+        score.setCenter(boardWidth - 40, boardHeight - 20);
         score.setFontSize(40);
         score.setFillColor(Color.WHITE);
 
@@ -138,10 +138,6 @@ public class SnakeGame {
 
             score.setText(Integer.toString(snakeList.size() - 1));
             
-            // TO DO: //
-            // MAKE FOOD METHOD ONLY BE ABLE TO SPAWN FOOD WHERE THERE IS NOT A PART OF A SNAKE //
-            // IMPLEMENT STARTING / DEATH SCREENS AND BUTTONS //
-
             moving = isAlive();
             if(!isAlive()) {
                 finalScore.setText("Your final score was " + Integer.toString(snakeList.size() - 1));
