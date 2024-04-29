@@ -1,15 +1,17 @@
-# Team Syntax Serpents - Snake Rendition
-## Proposal, Sketch, and UML Class Diagram
+# Team Name:  Syntax Serpents 
+# Project Name: Snake Rendition
 
-![A project proposal describing the purpose of the software](res/images/Proposal.png "Proposal")
+## Project Description
 
-![A sketch visualizing the finished project](res/images/Sketch.JPG "Sketch")
+Welcome to our Java-based Snake game project, an innovative reimagining of the classic Snake game that captivated millions on early Nokia phone models. Our version stays true to the beloved original, where the player controls a growing line that becomes a snake, navigating the play area while avoiding walls and its own ever-extending body. The objective is to eat items that randomly appear, each item consumed makes the snake longer and the game increasingly challenging. 
 
-![A UML class diagram showing the different classes and relationships in the project](res/images/UML.png "UML Diagram")
+The system will look like below, the green square is the snake and the red square is the food. 
+
+![A screenshot showing the main window of the program. A food unit and snake of length 1 is shown](res/images/MainWindow.png "Main Window Screenshot")
 
 ## Requirements
 
-Java 22 and VS Code installed on your machine is required to run this program.
+Java 22 and any IDE (we recommend VS Code) installed on your machine is required to run this program.
 
 ## How To Run
 
@@ -22,10 +24,6 @@ The only bug that we have encountered is that, if the snake is traveling in one 
 ## References
 
 We referenced previous activities and labs in order to see the best ways to work with the kilt graphics library to implement our game.
-
-## Main Window
-
-![A screenshot showing the main window of the program. A food unit and snake of length 1 is shown](res/images/MainWindow.png "Main Window Screenshot")
 
 
 
