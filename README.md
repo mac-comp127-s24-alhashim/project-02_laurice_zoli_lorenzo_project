@@ -3,9 +3,9 @@
 
 ![A project proposal describing the purpose of the software](res/images/Proposal.png "Proposal")
 
-![A sketch visualizing the finished project](res/images/Sketch.png "Sketch")
+![A sketch visualizing the finished project](res/images/Sketch.JPG "Sketch")
 
-![A UML class diagram showing the different classes and relationships in the project](res/images/UML.png "UML Diagram")
+![A UML class diagram showing the different classes and relationships in the project](res/images/UML.PNG "UML Diagram")
 
 ## Requirements
 
