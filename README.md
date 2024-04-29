@@ -25,6 +25,9 @@ The only bug that we have encountered is that, if the snake is traveling in one 
 
 We referenced previous activities and labs in order to see the best ways to work with the kilt graphics library to implement our game.
 
+## DEMO VIDEO
+https://youtu.be/gvlLUbsnJ5A
+
 
 
 
