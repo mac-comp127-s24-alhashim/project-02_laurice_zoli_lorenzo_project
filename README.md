@@ -5,7 +5,7 @@
 
 ![A sketch visualizing the finished project](res/images/Sketch.JPG "Sketch")
 
-![A UML class diagram showing the different classes and relationships in the project](res/images/UML.PNG "UML Diagram")
+![A UML class diagram showing the different classes and relationships in the project](res/images/UML.png "UML Diagram")
 
 ## Requirements
 
